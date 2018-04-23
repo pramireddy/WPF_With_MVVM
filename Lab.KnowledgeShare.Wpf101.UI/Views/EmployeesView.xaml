@@ -1,0 +1,79 @@
+﻿<Window x:Class="Lab.KnowledgeShare.Wpf101.UI.Views.EmployeesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab.KnowledgeShare.Wpf101.UI.Views"
+        mc:Ignorable="d"
+        Title="EmployeesView" Height="600" Width="950"
+        xmlns:viewmodel="clr-namespace:Lab.KnowledgeShare.Wpf101.UI.ViewModel"
+        DataContext="{Binding Source={StaticResource viewModelLocator},Path=EmployeeViewModel}">
+    <!--<Window.DataContext>
+        <viewmodel:EmployeeViewModel></viewmodel:EmployeeViewModel>
+    </Window.DataContext>-->
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!--<Label Grid.Column="0" Grid.Row="0" Margin="3">fdsf</Label>-->
+        <ListView Name="EmployeeView" Margin="5" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding Employees}"
+                  SelectedItem="{Binding SelectedEmployee}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"  VerticalAlignment="Top" 
+                               Width="{Binding ElementName=MainGrid, Path=ActualWidth}"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate  >
+                <DataTemplate >
+                    <Border CornerRadius="6" BorderBrush="#CCCCCC" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderThickness="1" Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding ImageId,Converter={StaticResource localImageConverter}}" Height="100" Width="100" Grid.Row="0" Grid.ColumnSpan="2"/>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Width="200">
+                                <Label Content="Name: " Grid.Column="0" Grid.Row="1"/>
+                                <Label Content="{Binding FirstName}" Grid.Column="1" Grid.Row="1"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                                <Label Content="Position: "  Grid.Column="0" Grid.Row="2"/>
+                                <Label Content="{Binding Position}" Grid.Column="1" Grid.Row="2"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                                <Label Content="Salary: " Grid.Column="0" Grid.Row="3"/>
+                                <Label Content="{Binding Salary,Converter={StaticResource localPriceConverter}}" Grid.Column="1" Grid.Row="3"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <Button  Name="EmployeeDetails" Content="Details"  Height="40" HorizontalContentAlignment="Center" FontWeight="Bold"
+                     Command="{Binding DetailsEmployeeCommand}"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" >
+            <Button  Name="AddEmployee" Content="Add Employee" Height="40" HorizontalContentAlignment="Center" FontWeight="Bold"
+                     Command="{Binding AddEmployeeCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,5 @@
+C:\Labs\Lab.KnowledgeShare.Wpf101\Lab.KnowledgeShare.Wpf101.Model\bin\Debug\Lab.KnowledgeShare.Wpf101.Model.dll
+C:\Labs\Lab.KnowledgeShare.Wpf101\Lab.KnowledgeShare.Wpf101.Model\bin\Debug\Lab.KnowledgeShare.Wpf101.Model.pdb
+C:\Labs\Lab.KnowledgeShare.Wpf101\Lab.KnowledgeShare.Wpf101.Model\obj\Debug\Lab.KnowledgeShare.Wpf101.Model.csproj.CoreCompileInputs.cache
+C:\Labs\Lab.KnowledgeShare.Wpf101\Lab.KnowledgeShare.Wpf101.Model\obj\Debug\Lab.KnowledgeShare.Wpf101.Model.dll
+C:\Labs\Lab.KnowledgeShare.Wpf101\Lab.KnowledgeShare.Wpf101.Model\obj\Debug\Lab.KnowledgeShare.Wpf101.Model.pdb

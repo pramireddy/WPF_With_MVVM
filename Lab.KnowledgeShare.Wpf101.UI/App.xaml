@@ -1,0 +1,14 @@
+﻿<Application x:Class="Lab.KnowledgeShare.Wpf101.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Lab.KnowledgeShare.Wpf101.UI"
+             xmlns:converter ="clr-namespace:Lab.KnowledgeShare.Wpf101.UI.Converter"
+             StartupUri="Views/EmployeesView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <local:ViewModelLocator x:Key="viewModelLocator"></local:ViewModelLocator>
+            <converter:PriceConverter x:Key="localPriceConverter"></converter:PriceConverter>
+            <converter:ImageConverter x:Key="localImageConverter"></converter:ImageConverter>            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
